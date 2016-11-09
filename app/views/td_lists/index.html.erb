@@ -1,0 +1,26 @@
+<div class="container">
+<h1>To-Do-2</h1>
+<hr />
+
+<ol>
+<% if @td_lists.any? %>
+  <% @td_lists.each do | tdlist| %>
+  <li>
+    <h2><%= tdlist.name %></h2>
+    <p><%= tdlist.complete %></p>
+
+  <%= link_to 'Show List', td_list_path(tdlist) %>
+  <%= link_to 'Edit List', edit_td_list_path(tdlist) %> |
+  <%= link_to 'Delete List', td_list_path(tdlist), method: :delete, data: {confirm: 'Are you sure you want to delete this List?'} %>
+  <% end %>
+
+  <% else %>
+  <h3>No lists found. Create one</h3>
+  <% end %>
+</li>
+<br \><br \>
+</ol>
+<%= link_to 'New List', new_td_list_path %>
+
+
+

@@ -1,0 +1,21 @@
+<h1>All Items for all Lists</h1>
+
+<ol>
+<% if @items.any? %>
+  <% @items.each do | item| %>
+  <li>
+    <h2><%= item.name %></h2>
+    <p><%= item.complete %></p>
+
+  <%= link_to 'Show Item', item_path(item) %>
+  <%= link_to 'Edit Item', edit_item_path(item) %> |
+  <%= link_to 'Delete Item', item_path(item), method: :delete, data: {confirm: 'Are you sure you want to delete this Item?'} %>
+  <% end %>
+
+  <% else %>
+  <h3>No items found. Create one</h3>
+  <% end %>
+</li>
+<br \><br \>
+</ol>
+<%= link_to 'New Item', new_item_path %>
